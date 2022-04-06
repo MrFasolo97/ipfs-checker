@@ -1,0 +1,16 @@
+[Unit]
+Description=Avalon node
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/bash /srv/avalon/start.sh
+WorkingDirectory=/srv/avalon
+KillMode=control-group
+KillSignal=2
+SendSIGHUP=yes
+
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,18 @@
+[Unit]
+Description=Port Forwarding
+After=network.target
+After=systemd-user-sessions.service
+After=network-online.target
+
+[Service]
+Type=forking
+Restart=always
+ExecStart=/srv/forward_avalon.bash
+WorkingDirectory=/srv/
+KillMode=control-group
+KillSignal=2
+SendSIGHUP=yes
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
