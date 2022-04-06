@@ -54,10 +54,8 @@ function checkDelay() {
           }
         }
         last_count = data.count
-        // data is already parsed as JSON:
       }
   });
-  //console.log(lastlog, date)
 }
 
 function restart(service) {
