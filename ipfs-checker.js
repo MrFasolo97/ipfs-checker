@@ -5,7 +5,6 @@ const local_url = 'http://localhost:5002'
 function checkIPFSNode() {
   request.get({
     uri: (local_url + "/webui"),
-    json: true,
     headers: {'User-Agent': 'request'}
     }, (err, response, data) => {
       if (err) {
