@@ -2,7 +2,7 @@ const request = require('request');
 const child_process = require('child_process');
 const local_url = 'http://localhost:5002'
 
-function checkDelay() {
+function checkIPFSNode() {
   request.get({
     uri: (local_url + "/webui"),
     json: true,
@@ -24,4 +24,4 @@ function restart(service) {
     console.log(`${service} restarted!`)
   })
 }
-setInterval(checkDelay, 3000)
+setInterval(checkIPFSNode, 30000)
