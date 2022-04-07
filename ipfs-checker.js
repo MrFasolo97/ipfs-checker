@@ -1,8 +1,6 @@
 const request = require('request');
 const { execFile } = require('child_process');
-var iter = 0
 const local_url = 'http://localhost:5002'
-const verbose = false
 
 function checkDelay() {
   request.get({
