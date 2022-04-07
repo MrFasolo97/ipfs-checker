@@ -1,17 +1,17 @@
-const request = require('request');
-const { execFile } = require('child_process');
+import { get } from 'request';
+import { execFile } from 'child_process';
 const local_url = 'http://localhost:5002'
 
 function checkDelay() {
-  request.get({
+  get({
     uri: (local_url + "/webui"),
     json: true,
     headers: {'User-Agent': 'request'}
     }, (err, response, data) => {
       if (err) {
         restart('ipfs')
-      } else if (response != null && response.statusCode === 301) {
-        console.log('Status:', response.statusCode);
+      } else if (response != null && response.statusCode !== 301) {
+        console.log('Status:', response.statusCode)
         restart('ipfs')
       }
   });
