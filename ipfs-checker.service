@@ -1,16 +1,17 @@
 [Unit]
-Description=Avalon node
+Description=IPFS node checker
 After=network.target
-
+StartLimitIntervalSec=3
+StartLimitBurst=100
 [Service]
 Type=simple
 Restart=always
-ExecStart=/usr/bin/bash /srv/avalon/start.sh
-WorkingDirectory=/srv/avalon
+ExecStart=node ipfs-checker.js
+WorkingDirectory=/srv/servers/
 KillMode=control-group
 KillSignal=2
 SendSIGHUP=yes
-
+RestartSec=3
 
 [Install]
 WantedBy=multi-user.target

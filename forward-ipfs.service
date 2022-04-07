@@ -1,5 +1,5 @@
 [Unit]
-Description=Port Forwarding
+Description=IPFS Port Forwarding
 After=network.target
 After=systemd-user-sessions.service
 After=network-online.target
@@ -7,7 +7,7 @@ After=network-online.target
 [Service]
 Type=forking
 Restart=always
-ExecStart=/srv/forward_avalon.bash
+ExecStart=/srv/forward_ipfs.bash
 WorkingDirectory=/srv/
 KillMode=control-group
 KillSignal=2
