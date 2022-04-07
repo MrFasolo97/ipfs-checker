@@ -5,19 +5,18 @@ const local_url = 'http://localhost:5002'
 const verbose = false
 
 function checkDelay() {
-        request.get({
-          uri: (local_url + "/webui"),
-          json: true,
-          headers: {'User-Agent': 'request'}
-        }, (err, response, data) => {
-          if (err) {
-            restart('ipfs')
-          } else if (response != null && response.statusCode === 301) {
-            console.log('Status:', response.statusCode);
-            restart('ipfs')
-          }
-        });
+  request.get({
+    uri: (local_url + "/webui"),
+    json: true,
+    headers: {'User-Agent': 'request'}
+    }, (err, response, data) => {
+      if (err) {
+        restart('ipfs')
+      } else if (response != null && response.statusCode === 301) {
+        console.log('Status:', response.statusCode);
+        restart('ipfs')
       }
+  });
 }
 
 function restart(service) {
